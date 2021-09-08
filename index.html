@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+
+<script type="text/javascript">
+
+
+
+    function carregar(){
+        var salvo = localStorage.getItem("valor");
+        var cont = document.querySelector("#cont");
+
+        cont.textContent = salvo;
+
+
+        var input = document.getElementById("valor");
+
+        // Execute a function when the user releases a key on the keyboard
+        input.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("myBtn").click();
+        }
+        });
+
+
+
+    }
+
+    function func(){
+
+        //localStorage.clear();
+        //console.log(localStorage);
+        //localStorage.setItem("valor", 1);
+
+       
+        var valor = document.getElementById("valor").value;
+        var guardado = localStorage.getItem("valor");
+
+        
+
+            var guardar = parseInt(valor) + parseInt(guardado);
+        
+
+            localStorage.setItem("valor", guardar);
+            
+
+            var retorno = localStorage.getItem("valor");
+            
+
+            var cont = document.querySelector("#cont");
+
+            cont.textContent = retorno;
+
+            document.getElementById('valor').value = "";
+            
+        
+
+
+    }
+
+
+    
+
+
+</script>
+
+
+<body onload="carregar()">
+    
+    <div>
+        <p id="cont"></p>
+    </br>
+    
+    <div class="entrada">
+        
+            <input type="number" id="valor">
+            <button type="submit" onclick=func() id="myBtn" class="btn btn-dark">Adicionar</button>
+    </div>
+    </div>
+
+    <div class="progress" >
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+
+        
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
